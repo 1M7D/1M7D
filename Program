@@ -1,0 +1,59 @@
+#include <iostream>
+ 
+ using namespace std;
+
+ int countoddDigits(int n ){
+if(n==0)
+  return 0;
+   else{
+    int lastDigits = n%10;
+     if(lastDigits  % 2 != 0)
+       return 1+ countoddDigits(n/10);
+   else 
+       return    countoddDigits(n /10);
+
+}
+   
+}
+int sumoddDigits(int n){
+if(n==0)
+  return 0;
+  else{
+    int lastDigits = n%10;
+    if(lastDigits % 2 !=0)
+      return lastDigits + sumoddDigits  (n/10);
+    else
+      return sumoddDigits(n/10);
+  }
+}
+int ProductOddDigits(int n){
+if(n==0)
+  return 1;
+  else{
+    int lastDigits = n%10;
+    if(lastDigits % 2 !=0)
+      return lastDigits  * ProductOddDigits(n/10);
+    else
+      return ProductOddDigits(n/10);
+  }
+}
+
+int main() { 
+  
+int num;
+  go:
+  cout<<"Enter positive integr: "<<endl;
+  cin>>num;
+   
+  cout<<" Number of odd digits  : "<<countoddDigits(num)<<endl;
+  
+  cout<<"sum of odd digits  :"<<sumoddDigits(num)<<endl;
+
+  cout<<"Product of odd digits  :"<<ProductOddDigits(num)<<endl;
+  goto go;
+  
+   
+   
+  
+  
+  return 0;
